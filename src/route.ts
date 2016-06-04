@@ -1,16 +1,5 @@
+import { Properties, Selector } from './interfaces';
 import { all } from './selectors/all';
-
-export interface Properties {
-  [index: string]: string | number;
-}
-
-export interface Selector<P> {
-  (params: P): Properties;
-}
-
-export interface Renderer<P> {
-  (params: P): string;
-}
 
 export class Route<P> {
   private _parts: Array<string>;
@@ -24,6 +13,6 @@ export class Route<P> {
   }
 
   get parts() {
-    return this.parts;
+    return this._parts;
   }
 }

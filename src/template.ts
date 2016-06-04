@@ -1,3 +1,3 @@
-export function template<P>(params: P): string {
+export function template(): string {
   return '/' + this.parts.join('/');
 }

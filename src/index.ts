@@ -1,8 +1,8 @@
-import { Route } from './route';
 export { Route } from './route';
 export { all, own, queryString } from './selectors';
-import 'add/renderer/link';
-import 'add/renderer/url';
+import './add/renderer/link';
+import './add/renderer/url';
+import './add/template'
 
 // const home = new Route<{}>('/');
 // const postsIndex = new Route<{}>('/posts');

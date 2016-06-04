@@ -108,10 +108,10 @@ At the moment there are 3 built-in selector functions available:
 * `own`: Selects all own properties of an object
 * `all`: Selects all properties of an object
 * `queryString`: Returns a copy of the object where an extra key is added: `queryString`.
-  This key contains an object with all the parameters passed as an argument to
-  `queryString` in query string format. If the renderer finds a `queryString`
-  object on the result of the selector function, it will automatically append a
-  query string for the values in that object.
+  This key contains  all the parameters passed as an argument to `queryString`
+  in query string format. If the renderer finds a `queryString`
+  key on the result of the selector function, it will automatically append
+  it to the link.
 
 `all` is used by default if no selector is specified.
 
@@ -119,14 +119,14 @@ Example usage:
 
 ```typescript
 import { own, all, queryString } from 'typesafe-urls/selectors';
-import { flow } from 'lodash';
+import { flowRight } from 'lodash';
 
 export const fooRoute = new Route<{ comment: Comment }>('/blog/:postId/comments/:id', own);
 export const barRoute = new Route<{ comment: SpecialComment }>('/blog/:postId/comments/:id', all);
 export const bazRoute = new Route<{ uuid: string, startDate?: int, endDate?: int }>('/req/:uuid', queryString(['startDate', 'endDate']));
 
 // Note that selectors can be composed for more specific results:
-const advancedSelector = flow(
+const advancedSelector = flowRight(
   queryString(['startDate', 'endDate']),
   (input) => Object.assign({}, input, {
     startDate: input.startDate && input.startDate.getTime(),

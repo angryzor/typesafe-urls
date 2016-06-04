@@ -16,8 +16,8 @@
         "outDir": "./build/es6"
     },
     "exclude": [
-        "build",
-        "query-string"
+        "node_modules",
+        "build"
     ],
     "compileOnSave": true,
     "buildOnSave": false,

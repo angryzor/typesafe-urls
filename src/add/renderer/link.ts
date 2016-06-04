@@ -1,4 +1,5 @@
-import { Route, Renderer } from '../../route';
+import { Route } from '../../route';
+import { Renderer } from '../../interfaces';
 import { link } from '../../renderer/link';
 
 Route.prototype.link = link;
