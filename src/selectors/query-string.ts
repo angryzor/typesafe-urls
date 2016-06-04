@@ -1,5 +1,5 @@
 import { Properties } from '../interfaces';
-import assign from 'object-assign';
+import assign = require('object-assign');
 import { stringify } from 'query-string';
 
 export const queryString = (props: Array<string>) => (obj: {}): Properties => {
