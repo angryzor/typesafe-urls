@@ -1,13 +1,13 @@
 {
   "name": "typesafe-urls",
-  "version": "0.0.3",
+  "version": "0.0.4",
   "description": "A TypeScript library that enforces type safe routes and links, similar to Yesod's type safe url's.",
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "clean": "rm -r build",
     "build": "tsc",
-    "package": "mkdir -p build/npm; cp -R ./package.json ./README.md ./LICENSE ./build/es6/* ./build/npm"
+    "package": "mkdir -p build/npm; cp -R ./package.json ./README.md ./LICENSE ./build/npm"
   },
   "repository": {
     "type": "git",

@@ -1,11 +1,13 @@
-NOTE: This library is not yet functional and the API is clunky because parts
-are missing, check back soon for a decent version!
-
 # Introduction
 This library abstracts your routes away behind type safe objects.
 This way it prevents you not only from writing incorrect links to your routes,
 but also helps you by pointing out broken links due to routing changes.
-This is best explained with an example.
+
+# Installation
+
+```
+npm install typesafe-urls
+```
 
 # Usage
 typesafe-urls can be used with most router libraries. Some may work immediately,

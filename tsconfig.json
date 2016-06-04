@@ -1,6 +1,6 @@
 {
     "compilerOptions": {
-        "target": "es2015",
+        "target": "es5",
         "module": "commonjs",
         "moduleResolution": "node",
         "isolatedModules": false,
@@ -13,7 +13,7 @@
         "noLib": false,
         "preserveConstEnums": true,
         "suppressImplicitAnyIndexErrors": true,
-        "outDir": "./build/es6"
+        "outDir": "./build/npm"
     },
     "exclude": [
         "node_modules",
