@@ -1,6 +1,6 @@
 {
   "name": "typesafe-urls",
-  "version": "0.0.4",
+  "version": "0.0.5",
   "description": "A TypeScript library that enforces type safe routes and links, similar to Yesod's type safe url's.",
   "main": "index.js",
   "scripts": {
