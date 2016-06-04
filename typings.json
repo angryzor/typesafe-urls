@@ -1,0 +1,8 @@
+{
+  "globalDependencies": {
+    "query-string": "registry:dt/query-string#3.0.0+20160331065456"
+  },
+  "dependencies": {
+    "object-assign": "registry:npm/object-assign#4.0.1+20160301180549"
+  }
+}

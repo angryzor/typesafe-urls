@@ -1,0 +1,37 @@
+{
+  "name": "typesafe-urls",
+  "version": "0.0.3",
+  "description": "A TypeScript library that enforces type safe routes and links, similar to Yesod's type safe url's.",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "clean": "rm -r build",
+    "build": "tsc",
+    "package": "mkdir -p build/npm; cp -R ./package.json ./README.md ./LICENSE ./build/es6/* ./build/npm"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/angryzor/typesafe-urls.git"
+  },
+  "keywords": [
+    "typescript",
+    "router",
+    "url",
+    "typesafe",
+    "type",
+    "safe",
+    "uri",
+    "links",
+    "urls"
+  ],
+  "author": "Ruben Tytgat",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/angryzor/typesafe-urls/issues"
+  },
+  "homepage": "https://github.com/angryzor/typesafe-urls#readme",
+  "dependencies": {
+    "object-assign": "^4.1.0",
+    "query-string": "^4.2.0"
+  }
+}
