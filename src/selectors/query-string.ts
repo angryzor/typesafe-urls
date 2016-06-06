@@ -1,5 +1,4 @@
 import { Properties } from '../interfaces';
-import assign = require('object-assign');
 import { stringify } from 'query-string';
 
 export const queryString = (props: Array<string>) => (obj: {}): Properties => {
@@ -8,7 +7,7 @@ export const queryString = (props: Array<string>) => (obj: {}): Properties => {
     return res;
   }, {}));
 
-  return assign({}, obj, {
+  return Object.assign({}, obj, {
     queryString: qs.length > 0 ? '?' + qs : ''
   });
 }

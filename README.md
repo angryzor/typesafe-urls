@@ -1,3 +1,5 @@
+![TypeScript](https://badges.frapsoft.com/typescript/version/typescript-next.svg?v=101)
+
 # Introduction
 This library abstracts your routes away behind type safe objects.
 This way it prevents you not only from writing incorrect links to your routes,
@@ -10,10 +12,9 @@ npm install typesafe-urls
 ```
 
 # Usage
-typesafe-urls can be used with most router libraries. Some may work immediately,
-some may need a plugin package. We're using @ngrx/router for our example.
-NOTE: There is a `typesafe-urls-ngrx-router` available which makes it so you
-don't have to type `.template()` every time.
+typesafe-urls can be used with most router libraries. Most of them will need
+a plugin package to prevent verbosity. We're using @ngrx/router for our example.
+This requires the `typesafe-urls-ngrx-router` plugin.
 
 routes.ts:
 ```typescript
@@ -24,24 +25,24 @@ export const homeRoute = new Route<{}>('/');
 export const blogRoute = new Route<{}>('/blog');
 export const postRoute = new Route<{ id: number }>('/blog/:id');
 
-export const routes: Routes = [{
-  path: homeRoute.template(),
+export const routes: Routes = buildRoutes([{
+  path: homeRoute,
   component: HomePage
 }, {
-  path: blogRoute.template(),
+  path: blogRoute,
   component: BlogPage,
   children: [{
-    path: postRoute.template(),
+    path: postRoute,
     component: PostPage
   }]
-}]
+}]);
 ```
 
 As you can see, route paths are no longer simple strings. They are abstracted away
 behind a Route object, and should be referred to through this object only! The
 Route object is also specialized with typed parameters corresponding to the
-parameters you expect. Let's have a look at what effect this has on the links
-referring to these route paths.
+parameters you expect in your path. Let's have a look at what effect this has
+on the links referring to these route paths.
 
 some-view.ts:
 
@@ -74,17 +75,17 @@ export const homeRoute = new Route<{}>('/');
 export const blogRoute = new Route<{}>('/blog');
 export const postRoute = new Route<{ post: Post }>('/blog/:id', (post) => ({ id: post.id }));
 
-export const routes: Routes = [{
-  path: homeRoute.template(),
+export const routes: Routes = buildRoutes([{
+  path: homeRoute,
   component: HomePage
 }, {
-  path: blogRoute.template(),
+  path: blogRoute,
   component: BlogPage,
   children: [{
-    path: postRoute.template(),
+    path: postRoute,
     component: PostPage
   }]
-}]
+}]);
 ```
 
 This time we defined a selector function! A selector function is a function
