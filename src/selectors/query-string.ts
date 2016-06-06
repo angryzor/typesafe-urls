@@ -1,7 +1,7 @@
 import { Properties } from '../interfaces';
 import { stringify } from 'query-string';
 
-export const queryString = (props: Array<string>) => (obj: {}): Properties => {
+export const queryString = (props: Array<string>) => (obj: Properties): Properties => {
   const qs = stringify(props.reduce((res, key) => {
     res[key] = obj[key];
     return res;
