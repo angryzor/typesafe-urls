@@ -13,8 +13,8 @@ npm install typesafe-urls
 
 # Usage
 typesafe-urls can be used with most router libraries. Most of them will need
-a plugin package to prevent verbosity. We're using @ngrx/router for our example.
-This requires the `typesafe-urls-ngrx-router` plugin.
+a plugin package to prevent verbosity. We're using [@ngrx/router](https://github.com/ngrx/router) for our example.
+This requires the [typesafe-urls-ngrx-router](https://github.com/angryzor/typesafe-urls-ngrx-router) plugin.
 
 routes.ts:
 ```typescript
@@ -73,7 +73,7 @@ import { Post } from '../models';
 
 export const homeRoute = new Route<{}>('/');
 export const blogRoute = new Route<{}>('/blog');
-export const postRoute = new Route<{ post: Post }>('/blog/:id', (post) => ({ id: post.id }));
+export const postRoute = new Route<{ post: Post }>('/blog/:id', ({ post }) => ({ id: post.id }));
 
 export const routes: Routes = buildRoutes([{
   path: homeRoute,
@@ -122,14 +122,14 @@ Example usage:
 
 ```typescript
 import { own, all, queryString } from 'typesafe-urls/selectors';
-import { flowRight } from 'lodash';
+import { compose } from '@ngrx/core/compose';
 
 export const fooRoute = new Route<{ comment: Comment }>('/blog/:postId/comments/:id', own);
 export const barRoute = new Route<{ comment: SpecialComment }>('/blog/:postId/comments/:id', all);
 export const bazRoute = new Route<{ uuid: string, startDate?: int, endDate?: int }>('/req/:uuid', queryString(['startDate', 'endDate']));
 
 // Note that selectors can be composed for more specific results:
-const advancedSelector = flowRight(
+const advancedSelector = compose(
   queryString(['startDate', 'endDate']),
   (input) => Object.assign({}, input, {
     startDate: input.startDate && input.startDate.getTime(),
