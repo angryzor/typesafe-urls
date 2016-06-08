@@ -20,6 +20,7 @@ routes.ts:
 ```typescript
 import { Routes } from '@ngrx/router';
 import { Route } from 'typesafe-urls';
+import { buildRoutes } from 'typesafe-urls-ngrx-router';
 
 export const homeRoute = new Route<{}>('/');
 export const blogRoute = new Route<{}>('/blog');
@@ -49,6 +50,9 @@ some-view.ts:
 ```typescript
 import { postRoute } from '../routes';
 import 'typesafe-urls/add/renderer/link';
+// ^ This is not necessary if you import using 'typesafe-urls',
+// but it's an example of how the Route class can be extended with
+// external renderers.
 
 const template = `<a href="${postRoute.link({ id: 4 })}">A post</a>`;
 ```
@@ -69,6 +73,7 @@ routes.ts:
 ```typescript
 import { Routes } from '@ngrx/router';
 import { Route } from 'typesafe-urls';
+import { buildRoutes } from 'typesafe-urls-ngrx-router';
 import { Post } from '../models';
 
 export const homeRoute = new Route<{}>('/');
